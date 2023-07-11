@@ -12,76 +12,76 @@ class OurProducts{
         return cy.contains('Contact Us')    
     }
     getOrderOfNavigation (){
-    return cy.get('ul.nav.navbar-nav > li').should('have.length', 3)
+    return cy.xpath('//ul[@class="nav navbar-nav"]/li').should('have.length', 3)
 }
     getSpecialOffersTitle(){
-        return cy.get('.sub-heading').contains('Special Offers')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Special Offers')
     }
     getSpecialOffersImg(){
-        return cy.get('#amp-img')
+        return cy.xpath('//img[@id="amp-img"]')
     }
 
     getCamerasTitle(){
-        return cy.get('.sub-heading').contains('Cameras')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Cameras')
     }
     getCamerasImg(){
-        return cy.get('#camera-img')
+        return cy.xpath('//img[@id="camera-img"]')
     }
 
     getNewLaptopsTitle(){
-        return cy.get('.sub-heading').contains('New Laptops')
+        return cy.xpath('//p[@class="sub-heading"]').contains('New Laptops')
     }
     getNewLaptopsImg(){
-        return cy.get('#laptop1')
+        return cy.xpath('//img[@id="laptop1"]')
     }
 
     getUsedLaptopsTitle(){
-        return cy.get('.sub-heading').contains('Used Laptops')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Used Laptops')
     }
     getUsedLaptopsImg(){
-        return cy.get('#laptop2')
+        return cy.xpath('//img[@id="laptop2"]')
     }
 
     getConsolesTitle(){
-        return cy.get('.sub-heading').contains('Game Consoles')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Game Consoles')
     }
     getConsolesImg(){
-        return cy.get('#nintendo')
+        return cy.xpath('//img[@id="nintendo"]')
     }
 
     getComponentsTitle(){
-        return cy.get('.sub-heading').contains('Components')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Components')
     }
     getComponentsImg(){
-        return cy.get('#graphic-card')
+        return cy.xpath('//img[@id="graphic-card"]')
     }
 
     getDesctopTitle(){
-        return cy.get('.sub-heading').contains('Desktop Systems')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Desktop Systems')
     }
     getDesctopImg(){
-        return cy.get('#computer')
+        return cy.xpath('//img[@id="computer"]')
     }
     
     getAudioTitle(){
-        return cy.get('.sub-heading').contains('Audio')
+        return cy.xpath('//p[@class="sub-heading"]').contains('Audio')
     }
     getAudioImg(){
-        return cy.get('#boombox')
+        return cy.xpath('//img[@id="boombox"]')
     }
 
 
     getModalPopup(){
-        return cy.get('.modal-content')
+        return cy.xpath('//div[@class="modal-content"]')
     }
     getModalTitle(){
-        return cy.get('.modal-title')
+        return cy.xpath('//h4[@class="modal-title"]')
     }
     getModalCloseXbutton(){
-        return cy.get('.close')
+        return cy.xpath('//button[@class="close"]')
     }
     getModalBody(){
-        return cy.get('.modal-body')
+        return cy.xpath('//div[@class="modal-body"]')
     }
     getModalProceedButton(){
         return cy.xpath('//div[@class="modal-footer"]/button[contains(text(), "Proceed")]')

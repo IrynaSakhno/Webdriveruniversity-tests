@@ -5,7 +5,7 @@ class contactUsPage{
         cy.visit('http://www.webdriveruniversity.com/Contact-Us/contactus.html')
     }
 getFirstName(){
-    return cy.get('input[name="first_name"]')
+    return cy.xpath('//input[@name="first_name"]')
 }
 getLastName(){
     return cy.get('input[name="last_name"]')   
@@ -18,11 +18,11 @@ getComments () {
 }
 
 getResetButton () {
-    return cy.get('#form_buttons').contains('RESET')
+    return cy.xpath('//div[@id="form_buttons"]').contains('RESET')
 }
 
 getSubmitButton () {
-    return cy.get('#form_buttons').contains('SUBMIT')
+    return cy.xpath('//div[@id="form_buttons"]').contains('SUBMIT')
 }
 
 getContactUsHeader () {
@@ -30,7 +30,7 @@ getContactUsHeader () {
 }
 
 getSuccessSubmitMessage () {
-    return cy.get('div#contact_reply > h1').contains('Thank You for your Message!')
+    return cy.xpath('//div[@id="contact_reply"]/child::h1').contains('Thank You for your Message!')
 }
 
 fillContactUsForm(user) {
@@ -49,11 +49,11 @@ fillContactUsForm(user) {
     this.getSubmitButton().click(); 
   }
 
-  getInvalidEmailError() {
+ getInvalidEmailError() {
     return cy.contains(errors.invalidEamil)
 }
 
-  getallFieldsAreRequiredError() {
+ getallFieldsAreRequiredError() {
     return cy.contains(errors.allFieldsAreRequired)
 }
 

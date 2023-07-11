@@ -22,7 +22,7 @@ describe("Check all elements on the Home page", () => {
 
     })
 
-    it.only("Check Modal Pop Up", () => {
+    it("Check Modal Pop Up", () => {
         ourProducts.getSpecialOffersTitle().click();
         ourProducts.getModalPopup().should('exist');
         ourProducts.getModalTitle().should("contain", " - GET 30% OFF YOUR FIRST ORDER AT ");

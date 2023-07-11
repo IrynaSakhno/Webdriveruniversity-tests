@@ -6,16 +6,16 @@ class HomePage{
         return cy.xpath('//span[@class="glyphicon glyphicon-chevron-left"]')
     }
     thirdImgShows() {
-        return cy.get(".active > #slide-image-3").should("be.visible");
+        return cy.xpath('//img[@id="slide-image-3"]').should("be.visible");
       }
     getRightArrow(){
         return cy.xpath('//span[@class="glyphicon glyphicon-chevron-right"]')
     }
     firstImgShows() {
-        return cy.xpath('//div[@class="item"]/img[@id="slide-image-1"]').should("be.visible");
+        return cy.xpath('//img[@id="slide-image-1"]').should("be.visible");
       }
     getCarouselIndicator(){
-        return cy.get('ol.carousel-indicators')
+        return cy.xpath('//ol[@class="carousel-indicators"]')
     }
     getHomeLink(){
         return cy.contains('Home')
@@ -33,16 +33,16 @@ class HomePage{
         return cy.get('div.caption').eq(0).children().contains('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. Praesent sed velit odio. Ut massa arcu, suscipit viverra molestie at, aliquet a metus. Nullam sit amet tellus dui, ut tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
     }
     getFindOutMoreButton(){
-        return cy.get('#button-find-out-more').contains('Find Out More!')
+        return cy.xpath('//button[@id="button-find-out-more"]').contains('Find Out More!')
     }
     getGreatServiceHeader(){
         return cy.contains('GREAT SERVICE!').should('have.text', 'GREAT SERVICE!')
     }
     getGreatServiceStars(){
-        return cy.get('.div-star').eq(0).children()
+        return cy.xpath('//div[@class="div-star"]').eq(0).children()
     }
     getTextBelowGreatService(){
-        return cy.get('div[class="caption"]').eq(1).children()
+        return cy.xpath('//div[@class="caption"]').eq(1).children()
     }
     getWhyChooseUsHeader(){
         return cy.contains("Why Choose Us?").should("have.text", "Why Choose Us?")
