@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 import DropdownPage from "../../padges/Our-Products";
 
 const dropdownPage = new DropdownPage();
