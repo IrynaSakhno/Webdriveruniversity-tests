@@ -1,92 +1,90 @@
 class OurProducts{
-    openOurProducts(){
-        cy.visit('http://www.webdriveruniversity.com/Page-Object-Model/products.html')
-    }
-    getHomeLink(){
+    
+    static get getHomeLink(){
         return cy.contains('Home')
     }
-    getOurProductsLink(){
+    static get getOurProductsLink(){
         return cy.contains('Our Products')    
     }
-    getContactUsLink(){
+    static get getContactUsLink(){
         return cy.contains('Contact Us')    
     }
-    getOrderOfNavigation (){
-    return cy.xpath('//ul[@class="nav navbar-nav"]/li').should('have.length', 3)
+    static get getOrderOfNavigation (){
+    return cy.xpath('//ul[@class="nav navbar-nav"]/li')
 }
-    getSpecialOffersTitle(){
+    static get getSpecialOffersTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Special Offers')
     }
-    getSpecialOffersImg(){
+    static get getSpecialOffersImg(){
         return cy.xpath('//img[@id="amp-img"]')
     }
 
-    getCamerasTitle(){
+    static get getCamerasTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Cameras')
     }
-    getCamerasImg(){
+    static get getCamerasImg(){
         return cy.xpath('//img[@id="camera-img"]')
     }
 
-    getNewLaptopsTitle(){
+    static get getNewLaptopsTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('New Laptops')
     }
-    getNewLaptopsImg(){
+    static get getNewLaptopsImg(){
         return cy.xpath('//img[@id="laptop1"]')
     }
 
-    getUsedLaptopsTitle(){
+    static get getUsedLaptopsTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Used Laptops')
     }
-    getUsedLaptopsImg(){
+    static get getUsedLaptopsImg(){
         return cy.xpath('//img[@id="laptop2"]')
     }
 
-    getConsolesTitle(){
+    static get getConsolesTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Game Consoles')
     }
-    getConsolesImg(){
+    static get getConsolesImg(){
         return cy.xpath('//img[@id="nintendo"]')
     }
 
-    getComponentsTitle(){
+    static get getComponentsTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Components')
     }
-    getComponentsImg(){
+    static get getComponentsImg(){
         return cy.xpath('//img[@id="graphic-card"]')
     }
 
-    getDesctopTitle(){
+    static get getDesctopTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Desktop Systems')
     }
-    getDesctopImg(){
+    static get getDesctopImg(){
         return cy.xpath('//img[@id="computer"]')
     }
     
-    getAudioTitle(){
+    static get getAudioTitle(){
         return cy.xpath('//p[@class="sub-heading"]').contains('Audio')
     }
-    getAudioImg(){
+    static get getAudioImg(){
         return cy.xpath('//img[@id="boombox"]')
     }
 
 
-    getModalPopup(){
+    static get getModalPopup(){
         return cy.xpath('//div[@class="modal-content"]')
     }
-    getModalTitle(){
+    static get getModalTitle(){
         return cy.xpath('//h4[@class="modal-title"]')
     }
-    getModalCloseXbutton(){
+    static get getModalCloseXbutton(){
         return cy.xpath('//button[@class="close"]')
     }
-    getModalBody(){
+    static get getModalBody(){
         return cy.xpath('//div[@class="modal-body"]')
     }
-    getModalProceedButton(){
+    static get getModalProceedButton(){
         return cy.xpath('//div[@class="modal-footer"]/button[contains(text(), "Proceed")]')
     }
-    getModalCloseButton(){
+    static get getModalCloseButton(){
         return cy.xpath('//div[@class="modal-footer"]/button[contains(text(), "Close")]')
     }
 }

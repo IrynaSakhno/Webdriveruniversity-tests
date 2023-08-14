@@ -1,62 +1,71 @@
 class DropdownPage{
-    visitDropdownPage(){
-        cy.visit('http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html')
-    }
-
-    getPageHeader(){
+    
+    static get getPageHeader(){
         return cy.xpath('//div[@id="main-header"]//h1')
     }
 
-    getDivByTitle(title){
+    static getDivByTitle(title){
         return cy.xpath(`//div[@class='thumbnail']/*[contains(text(), '${title}')]`)
     }
 
-    getDropdownById(id){
+    static getDropdownById(id){
         return cy.xpath(`//div[@class='thumbnail']/*[contains(text(), 'Dropdown Menu(s)')]/..//select[@id="dropdowm-menu-${id}"]`)
     }
     
-    verifyAllDropdownOptions(arrayOfValues, dropdownID){
+    static verifyAllDropdownOptions(arrayOfValues, dropdownID){
         arrayOfValues.forEach(value => {
             let el = value.toLowerCase().trim();
             this.getDropdownById(dropdownID).should('exist').select(value).invoke('val').should('eq', value);
         })
     }
 
-    getCheckboxDiv(){
-        return cy.xpath('//div[@id="checkboxes"]');
-    }
+    //static get getCheckboxDiv(){
+    //    return cy.xpath('//div[@id="checkboxes"]');
+    //}
     
-    get1option(){
-        return cy.xpath('//input[value="option-1"]');
-    }
+    //static get get1option(){
+    //    return cy.xpath('//input[value="option-1"]');
+    //}
 
-    get2option(){
-        return cy.xpath('//input[value="option-2"]');
-    }
+    //static get get2option(){
+    //    return cy.xpath('//input[value="option-2"]');
+    //}
 
-    get3option(){
-        return cy.xpath('//input[value="option-3"]');
-    }
+    //static get get3option(){
+     //   return cy.xpath('//input[value="option-3"]');
+    //}
 
-    get4option(){
-        return cy.xpath('//input[value="option-4"]');
-    }
+    //static get get4option(){
+    //    return cy.xpath('//input[value="option-4"]');
+    //}
 
-    getAllCheckboxes(){
+    static get getAllCheckboxes(){
         return cy.get('input[type="checkbox"]');
     }
 
-    getAllRadioButtons(){
+    static get getAllRadioButtons(){
         return cy.xpath(`//form[@id="radio-buttons"]//input[@type="radio"]`)
     }
 
-    getRadioButtonsWithDisabled(){
+    static get getRadioButtonsWithDisabled(){
         return cy.xpath(`//form[@id="radio-buttons-selected-disabled"]//input`)
     }
 
-    getSelectAndDisabledDropdown(){
-        return cy.xpath('//select[@id="fruit-selects"]')
-    }
+    static get getLettuceRadioButton(){
+    return cy.xpath(`//input[@value="lettuce"]`)
 }
 
+    static get getCabbageRadioButton(){
+    return cy.xpath(`//input[@value="cabbage"]`)
+}
+
+    static get getSelectAndDisabledDropdown(){
+        return cy.xpath('//select[@id="fruit-selects"]')
+    }
+
+    static get getOrangeValueInDropdown(){
+        return cy.xpath('//option[@value="orange"]')
+    }
+
+}
 export default DropdownPage

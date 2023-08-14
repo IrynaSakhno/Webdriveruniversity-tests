@@ -1,63 +1,80 @@
 class HomePage{
-    openHomePage(){
-        cy.visit('http://www.webdriveruniversity.com/Page-Object-Model/index.html')
+
+    static get getLeftArrow(){
+        return cy.xpath('//span[@class="glyphicon glyphicon-chevron-left"]');
     }
-    getLeftArrow(){
-        return cy.xpath('//span[@class="glyphicon glyphicon-chevron-left"]')
-    }
-    thirdImgShows() {
-        return cy.xpath('//img[@id="slide-image-3"]').should("be.visible");
+    static get thirdImgShows() {
+        return cy.xpath('//img[@id="slide-image-3"]');
       }
-    getRightArrow(){
-        return cy.xpath('//span[@class="glyphicon glyphicon-chevron-right"]')
+    static get getRightArrow(){
+        return cy.xpath('//span[@class="glyphicon glyphicon-chevron-right"]');
     }
-    firstImgShows() {
-        return cy.xpath('//img[@id="slide-image-1"]').should("be.visible");
+    static get firstImgShows() {
+        return cy.xpath('//img[@id="slide-image-1"]');
       }
-    getCarouselIndicator(){
+    static  get getCarouselIndicator(){
         return cy.xpath('//ol[@class="carousel-indicators"]')
     }
-    getHomeLink(){
+    static get getHomeLink(){
         return cy.contains('Home')
     }
-    getOurProductsLink(){
+    static get getOurProductsLink(){
         return cy.contains('Our Products')    
     }
-    getContactUsLink(){
+    static get getContactUsLink(){
         return cy.contains('Contact Us')    
     }
-    getWhoAreWeText(){
+    static get getWhoAreWeHeader(){
         return cy.contains("Who Are We?").should("have.text", "Who Are We?")
     }
-    getTextBelowWhoAreWe(){
+    static get getTextBelowWhoAreWe(){
         return cy.get('div.caption').eq(0).children().contains('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. Praesent sed velit odio. Ut massa arcu, suscipit viverra molestie at, aliquet a metus. Nullam sit amet tellus dui, ut tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
     }
-    getFindOutMoreButton(){
+    static get getFindOutMoreButton(){
         return cy.xpath('//button[@id="button-find-out-more"]').contains('Find Out More!')
     }
-    getGreatServiceHeader(){
+    static get getGreatServiceHeader(){
         return cy.contains('GREAT SERVICE!').should('have.text', 'GREAT SERVICE!')
     }
-    getGreatServiceStars(){
+    static get getGreatServiceStars(){
         return cy.xpath('//div[@class="div-star"]').eq(0).children()
     }
-    getTextBelowGreatService(){
+    static get getTextBelowGreatService(){
         return cy.xpath('//div[@class="caption"]').eq(1).children()
     }
-    getWhyChooseUsHeader(){
+    static get getWhyChooseUsHeader(){
         return cy.contains("Why Choose Us?").should("have.text", "Why Choose Us?")
     }
-    getTextBelowWhyChooseUs(){
+    static get getTextBelowWhyChooseUs(){
         return cy.get('div.caption').eq(2).children().contains('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci.')
     }
-    getExcellentCustomerServiceHeader(){
+    static get getExcellentCustomerServiceHeader(){
         return cy.contains('Excellent Customer Service!').should('have.text', 'Excellent Customer Service!')
     }
-    getExcellentCustomerServiceStars(){
+    static get getExcellentCustomerServiceStars(){
         return cy.get('.div-star').eq(1).find('span')
     }
-    getTextBelowExcellentCustomerService(){
+    static get getTextBelowExcellentCustomerService(){
         return cy.get('div.caption').eq(3).children().contains('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. ')
+    }
+
+    static get getPopUp(){
+        return cy.xpath('//div[@class="modal-content"]')
+    }
+    static get getPopUpTitle(){
+        return cy.xpath('//h4[@class="modal-title"]')
+    }
+    static get getPopUpBody(){
+        return cy.xpath('//div[@class="modal-body"]')
+    }
+    static get getPopUpCloseXbutton(){
+        return cy.xpath('//button[@class="close"]')
+    }
+    static get getPopUpFindOutMoreButton(){
+        return cy.xpath('//div[@class="modal-footer"]/button[contains(text(), "Find Out More")]')
+    }
+    static get getPopUpCloseButton(){
+        return cy.xpath('//div[@class="modal-footer"]/button[contains(text(), "Close")]')
     }
 }
 

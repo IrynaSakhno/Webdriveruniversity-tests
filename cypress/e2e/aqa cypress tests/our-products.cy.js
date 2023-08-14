@@ -1,77 +1,78 @@
 /// <reference types="Cypress" />
 
 import OurProducts from "../../padges/Our-Products";
+import OurProductStep from "../../steps/our-prod-steps";
 
 const ourProducts = new OurProducts();
+const ourProductStep = new OurProductStep();
 
-describe("Check all elements on the Home page", () => {
+describe("Check all elements on the Products page", () => {
     beforeEach(() => {
-        ourProducts.openOurProducts();
+        ourProductStep.openOurProducts();
     })
 
-    it("Check Navigation block (Home, Our products, Contact Us)", () => {
-        ourProducts.getOrderOfNavigation();
-        ourProducts.getHomeLink().should("have.text", "Home").click().url().should("eq","http://www.webdriveruniversity.com/Page-Object-Model/index.html");
-        ourProducts.getOurProductsLink().click().url().should("eq","http://www.webdriveruniversity.com/Page-Object-Model/products.html");
-        ourProducts.getContactUsLink().click().url().should("eq","http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+    it("Check Navigation block (Home, Our Products, Contact Us)", () => {
+        ourProductStep.verifyTopNavBarIsPresent();
+        ourProductStep.verifyHomeIsClicked();
+        ourProductStep.verifyOurProductIsClicked();
+        ourProductStep.verifyContactUsIsCliched();
             })
 
     it("Check Special Offers block", () => {
-        ourProducts.getSpecialOffersTitle().should("have.text", "Special Offers");
-        ourProducts.getSpecialOffersImg().should('exist');
+        ourProductStep.verifySpecialOffersTitlePresent();
+        ourProductStep.verifySpecialOffersImg();
 
     })
 
-    it("Check Modal Pop Up", () => {
-        ourProducts.getSpecialOffersTitle().click();
-        ourProducts.getModalPopup().should('exist');
-        ourProducts.getModalTitle().should("contain", " - GET 30% OFF YOUR FIRST ORDER AT ");
-        ourProducts.getModalBody().should('exist');
-        ourProducts.getModalCloseXbutton().should('be.enabled');
-        ourProducts.getModalProceedButton().should('be.enabled');
-        ourProducts.getModalCloseButton().should('be.enabled').click();
-        ourProducts.getModalPopup().should('not.be.visible');
+    it.only("Check Modal Pop Up", () => {
+        ourProductStep.verifyModalPopUpExists();
+        ourProductStep.verifyModalTitleIsPresent();
+        ourProductStep.verifyModalBodyIsPresent();
+        ourProductStep.verifyModalCloseXbuttonEnabled();
+        ourProductStep.verifyModalProceedButtonEnabled();
+        ourProductStep.verifyModalCloseButtonEnabled();
+        ourProductStep.verifyModalPopUpNotVisible();
     })
 
     it("Check Cameras block", () => {
-        ourProducts.getCamerasTitle().should("have.text", "Cameras");
-        ourProducts.getCamerasImg().should('exist');
+        ourProductStep.verifyCamerasTitle();
+        ourProductStep.verifyCamerasImg();
 
     })
 
     it("Check New Laptop block", () => {
-        ourProducts.getNewLaptopsTitle().should("have.text", "New Laptops");
-        ourProducts.getNewLaptopsImg().should('exist');
+        ourProductStep.verifyNewLapTopsTitle();
+        ourProductStep.verifyNewLapTopsImg();
 
     })
 
     it("Check Used Laptop block", () => {
-        ourProducts.getUsedLaptopsTitle().should("have.text", "Used Laptops");
-        ourProducts.getUsedLaptopsImg().should('exist');
+        ourProductStep.verifyUsedLapTopsTitle();
+        ourProductStep.verifyUsedLapTopsImg();
 
     })
 
     it("Check Consoles block", () => {
-        ourProducts.getConsolesTitle().should("have.text", "Game Consoles");
-        ourProducts.getCamerasImg().should('exist');
+        ourProductStep.verifyConsolesTitle();
+        ourProductStep.verifyConsolesImg();
 
     })
 
     it("Check Components block", () => {
-        ourProducts.getComponentsTitle().should("have.text", "Components");
-        ourProducts.getComponentsImg().should('exist');
+        ourProductStep.verifyComponentsTitle();
+        ourProductStep.verifyComponentsImg();
 
     })
 
     it("Check Desctop Systems block", () => {
-        ourProducts.getDesctopTitle().should("have.text", "Desktop Systems");
-        ourProducts.getDesctopImg().should('exist');
+        ourProductStep.verifyDesctopsTitle();
+        ourProductStep.verifyDesctopsImg();
 
     })
 
     it("Check Audio block", () => {
-        ourProducts.getAudioTitle().should("have.text", "Audio");
-        ourProducts.getAudioImg().should('exist');
+        ourProductStep.verifyAudioTitle();
+        ourProductStep.verifyAudioImg();
 
     })
 

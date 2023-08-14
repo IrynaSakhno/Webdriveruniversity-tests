@@ -1,49 +1,65 @@
 /// <reference types="Cypress" />
 
-import HomePage from "../../padges/home-page";
+import HomePage from "../../padges/Home-Page";
+import HomePageStep from "../../steps/home-page-steps";
+
 const homePage = new HomePage();
+const homePageStep = new HomePageStep();
 
 describe("Check all elements on the Home page", () => {
-    it("Check Navigation block", () => {
-        homePage.openHomePage();
-        homePage.getHomeLink().should("have.text", "Home").click().url().should("eq","http://www.webdriveruniversity.com/Page-Object-Model/index.html");
-        homePage.getOurProductsLink().click().url().should("eq","http://www.webdriveruniversity.com/Page-Object-Model/products.html");
-        homePage.getContactUsLink().click().url().should("eq","http://www.webdriveruniversity.com/Contact-Us/contactus.html");
-
+    
+    it("Check Carousel with Images", () => {
+        homePageStep.visit();
+        homePageStep.verifyLeftArrowExistsAndCanBeClicked();
+        homePageStep.verifyImageIsChanged1();
+        homePageStep.verifyRightArrowExistsAndCanBeClicked();
+        homePageStep.verifyImageIsChanged2();
     })
 
-    it("Check Images block", () => {
-        homePage.openHomePage();
-        homePage.getLeftArrow().click();
-        homePage.thirdImgShows();
-        homePage.getRightArrow().click();
-        homePage.firstImgShows();
+    it("Check Navigation block", () => {
+        homePageStep.visit();
+        homePageStep.verifyHomeInNavBAr();
+        homePageStep.verifyOurProductsInNavBAr();
+        homePageStep.verifyContactUsInNavBAr();
     })
 
     it("Check Who are we block", () => {
-        homePage.openHomePage();
-        homePage.getWhoAreWeText().should("have.text", "Who Are We?");
-        homePage.getTextBelowWhoAreWe().should("have.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. Praesent sed velit odio. Ut massa arcu, suscipit viverra molestie at, aliquet a metus. Nullam sit amet tellus dui, ut tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-        homePage.getFindOutMoreButton().should("have.text", "Find Out More!");
+        homePageStep.visit();
+        homePageStep.verifyWhoAreWeHeaderIsPresent();
+        homePageStep.verifyWhoAreWeTextIsPresent();
+        homePageStep.verifyFindOutButtonPresentAndClicked();
+    })
+
+    it("Check Modal Pop Up", () => {
+        homePageStep.verifyPopUpIsOpened();
+        homePageStep.verifyPopUpTitleIsPresent();
+        homePageStep.verifyPopUpBodyIsPresent();
+        homePageStep.verifyFindButtonPresentAndClicked();
+        homePageStep.verifyPopUpIsClosed();
+        homePageStep.verifyFindOutButtonPresentAndClicked();
+        homePageStep.verifyCloseButtonPresentAndClicked();
+        homePageStep.verifyPopUpIsClosed();
+        homePageStep.verifyXButtonPresentAndClicked()
+        homePageStep.verifyPopUpIsClosed();
     })
 
     it("Check Greate Service block", () => {
-        homePage.openHomePage();
-        homePage.getGreatServiceHeader().should("have.text", "GREAT SERVICE!");
-        homePage.getTextBelowGreatService().should('not.be.empty');
-        homePage.getGreatServiceStars();
+        homePageStep.visit();
+        homePageStep.verifyGrServiceHeaderIsPresent();
+        homePageStep.verifyGrServiceStarsIsPresent();
+        homePageStep.verifyGrServiceTextIsPresent();
     })
 
     it("Check Why Choose Us block", () => {
-        homePage.openHomePage();
-        homePage.getWhyChooseUsHeader().should("have.text", "Why Choose Us?");
-        homePage.getTextBelowGreatService().should('not.be.empty');
+        homePageStep.visit();
+        homePageStep.verifyWhyChooseUsHeaderIsPresent();
+        homePageStep.verifyWhyChooseUsTextIsPresent();
     })
 
     it("Check Excellent Customer Service block", () => {
-        homePage.openHomePage();
-        homePage.getExcellentCustomerServiceHeader().should("have.text", "Excellent Customer Service!");
-        homePage.getTextBelowExcellentCustomerService().should("have.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit sapien, tempus sit amet hendrerit volutpat, euismod vitae risus. Etiam consequat, sem et vulputate dapibus, diam enim tristique est, vitae porta eros mauris ut orci. ");
-        homePage.getGreatServiceStars();
+        homePageStep.visit();
+        homePageStep.verifyExServiceHeaderIsPresent();
+        homePageStep.verifyGrServiceStarsIsPresent();
+        homePageStep.verifyExServiceTextIsPresent();
     })
 })
